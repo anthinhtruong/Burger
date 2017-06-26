@@ -1,4 +1,4 @@
-var connection = require("../config/connection.js");
+var connection = require("./connection.js");
 
 
 function printQuestionMarks(num) {
@@ -24,7 +24,7 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-
+// var ttt = console.log("+++++++++----=-=-=-=-")
 
 var orm = {
     selectAll: function(table,cb){

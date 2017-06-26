@@ -1,6 +1,9 @@
 var orm = require("../config/orm.js");
 
+// var yyy = console.log("++++++++++=========")
+
 var burger = {
+
     selectAll: function(cb){
         orm.selectAll("burger", function(res) {
             cb(res);

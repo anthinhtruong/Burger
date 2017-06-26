@@ -6,30 +6,30 @@ var burger = require("../models/burger.js");
 router.get("/", function(req,res){
     burger.selectAll(function(data) {
     var hbsObject = {
-      cats: data
+      burger: data
     };
-    console.log(hbsObject);
+    // console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
 
-router.post("/", function(req, res) {
-  cat.insertOne(["burger_name", "devour"], [ req.body.name, req.body.devour], function() {
+router.post("/newburger", function(req, res) {
+  burger.insertOne(["burger_name"], [ req.body.name], function(data) {
     res.redirect("/");
   });
 });
 
 
 
-router.put("/:id", function(req, res) {
+router.put("/burger/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  console.log("condition", condition);
+  // console.log("condition", condition);
 
   burger.updateOne({
-    sleepy: req.body.devour
-  }, condition, function() {
+    devour: true
+  },condition, function() {
     res.redirect("/");
   });
 });

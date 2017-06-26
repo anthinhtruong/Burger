@@ -1,0 +1,67 @@
+<img src = "http://www.tellusaboutus.com/comments/images/BK-WebComment/BB_WHOPPER-v1.png">
+<h1>Let's Burgers!!!</h1>
+
+
+<div class = "container" id = "devourBurger">
+
+    <div class = " row" >
+        <div class = "col-md-6">
+            <h2>Burgers that need devouring </h2>
+                
+                {{#each burger}}
+                    {{#unless this.devour}}
+                        {{!--<li>
+                        {{this.name}}--}}
+
+                        <form action="/burger/{{this.id}}?_method=PUT" method="POST">
+                            <lable>{{this.burger_name}}</lable>
+                            <button type="submit">DEVOUR NOW</button>
+                        </form>
+
+                
+                        </li>
+                    {{/unless}}
+                {{/each}}
+        </div>
+
+
+        <div class = "col-md-6">
+            <h2>Yum!! </h2>
+                
+                {{#each burger}}
+                    {{#if this.devour}}
+                        <li>
+                        {{this.name}}
+
+                        <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <input type="hidden" name="devour" value="true">
+                        
+                        </form>
+
+                
+                        </li>
+                    {{/unless}}
+                {{/each}}    
+
+        </div>
+
+
+
+    </div>
+</div>
+
+<div class = "container" id = "addBurger">
+    <div class="row">
+        <div class="col-md-12">
+            <form class="create-update-form" action="/newburger" method="POST">
+
+                    <label> Name a Burger:</label>
+                    <input type="text" id="ca" name="name">
+                
+
+                <button type="submit">Add a Burger</button>
+            </form>
+        </div>    
+    </div>
+
+</div>
